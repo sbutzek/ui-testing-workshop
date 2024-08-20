@@ -74,6 +74,17 @@
       "balance": 49474,
       "createdAt": "2023-12-07T04:39:38.383Z",
       "modifiedAt": "2024-03-07T00:07:36.510Z"
+    },
+    {
+      "id": "vAPijyVwf",
+      "uuid": "dd0e15d9-357a-45a4-8287-e8dadef4081e",
+      "firstName": "Bla",
+      "lastName": "Blub",
+      "username": "bblub",
+      "password": "$2a$10$NF4mUXeHugWO.vEJu3pLo.qdPsb3UVja2h2fFEqYxz4wDBMK4kPd6",
+      "balance": 0,
+      "createdAt": "2024-08-15T12:12:25.890Z",
+      "modifiedAt": "2024-08-15T12:12:25.890Z"
     }
   ],
   "contacts": [
@@ -253,6 +264,17 @@
       "isDeleted": false,
       "createdAt": "2024-01-26T14:01:01.815Z",
       "modifiedAt": "2024-03-07T08:44:31.174Z"
+    },
+    {
+      "id": "MEKwhXNLi",
+      "uuid": "3962360b-8f35-4aed-8b18-86b569f3164f",
+      "userId": "vAPijyVwf",
+      "bankName": "My Bank",
+      "accountNumber": "987645132",
+      "routingNumber": "123456789",
+      "isDeleted": false,
+      "createdAt": "2024-08-15T12:13:09.505Z",
+      "modifiedAt": "2024-08-15T12:13:09.505Z"
     }
   ],
   "transactions": [
