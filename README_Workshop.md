@@ -3,7 +3,8 @@
 ## Vorbereitung
 
 1. Falls nötig, installiere Node 18 oder neuer.
-2. Run ``npm install`` oder ``npm ci``
+1. Falls nötig, installiere yarn: ``npm install -g yarn``
+1. Run ``yarn`` um dependencies zu installieren.
 
 ## Die Anwendung
 
@@ -20,7 +21,7 @@
   * Einen Kommentar zu einer Transaktion schreiben
 
 ## Test Setup
-Auf dem ``master`` branch ist das grundsätzliche Setup für sowohl Cypress als auch Playwright bereits vorhanden
+Auf dem ``develop`` branch ist das grundsätzliche Setup für sowohl Cypress als auch Playwright bereits vorhanden
 und du kannst direkt mit dem Testing beginnen.
 Wenn du das Setup selbst erstellen möchtest, wechsle bitte auf den branch ``workshop-no-setup``.
 // TODO: sebastian.butzek 20.08.24: branch ohne setup erstellen 

@@ -57,6 +57,7 @@
     "@faker-js/faker": "6.1.2",
     "@percy/cli": "^1.27.4",
     "@percy/cypress": "3.1.2",
+    "@playwright/test": "^1.46.1",
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^14.0.0",
     "@types/bcryptjs": "2.4.2",
@@ -159,12 +160,11 @@
     "precypress:open": "yarn predev:cognito:ci",
     "cypress:open": "cypress open",
     "cypress:open:mobile": "cypress open --config '{\"e2e\":{\"viewportWidth\":375,\"viewportHeight\":667}}'",
-    "cypress:run": "cypress run",
+    "cypress:headless": "cypress run",
     "cypress:run:component": "cypress run --component",
     "cypress:run:mobile": "cypress run --config '{\"e2e\":{\"viewportWidth\":375,\"viewportHeight\":667}}'",
     "test": "yarn cypress:open",
-    "test:headless": "yarn cypress:run",
-    "test:api": "yarn cypress:run --spec 'cypress/tests/api/*'",
+    "cypress:test:api": "yarn cypress:run --spec 'cypress/tests/api/*'",
     "test:unit": "vitest",
     "test:unit:ci": "vitest --run",
     "test:component:ci": "yarn cypress:run:component",
@@ -188,7 +188,10 @@
     "build": "vite build",
     "codesandbox:start:api": "yarn tsnode:not-instrumented --files backend/app.ts",
     "codesandbox:start": "NODE_ENV=development TSC_COMPILE_ON_ERROR=true concurrently \"vite\" yarn:start:api:codesandbox",
-    "postinstall": "husky install && patch-package"
+    "postinstall": "husky install && patch-package",
+    "playwright:headless": "playwright test",
+    "playwright:headed": "playwright test --headed",
+    "playwright:ui": "playwright test --ui"
   },
   "engines": {
     "node": "^18.0.0 || >=20.0.0"

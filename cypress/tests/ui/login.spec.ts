@@ -35,8 +35,8 @@ describe("Bank Accounts", function () {
   it("should perform login and create a new bankaccount", () => {
     cy.visit("/");
 
-    cy.getBySel("signin-username").type("User");
-    cy.getBySel("signin-password").type("abc");
+    cy.getBySel("signin-username").type("bblub");
+    cy.getBySel("signin-password").type("Testing123");
     cy.getBySel("signin-remember-me").click();
     cy.getBySel("signin-submit").click();
     cy.wait("@login");
