@@ -31,6 +31,8 @@ Wenn du das Setup selbst erstellen möchtest, wechsle bitte auf den branch ``wor
 **Entscheide dich für ein Framework!**
 
 ### Entscheidung für Cypress
+Die globalen Settings für Cypress findest du in der [cypress.config.ts](./cypress.config.ts).
+
 Für Cypress verfügt die Anwendung bereits über End-to-End Tests und API-Tests fürs Backend.
 Du findest die Tests im package `cypress/tests` unter `e2e` bzw `api`. 
 Die E2E-Tests können als Inspiration für UI-Tests-Szenarien dienen.  
@@ -38,14 +40,30 @@ Im gleichen Verzeichnis findest du auch ein `ui` package.
 Hier gibt es bereits ein Szenario für den Login, der nach dem Start der Anwendung zwingend durchgeführt werden muss.
 Das Szenario kann nun beliebig fortgesetzt werden.
 
+Wichtig: Vor dem Start des Tests muss das Frontend gestartet sein! (``yarn run start:react``).  
+Um sicher zu sein, dass nicht das echte Backend verwendet wird nur das Frontend starten, nicht die gesamte Anwendung!
+
 ### Entscheidung für Playwright
-// TODO:  sebastian.butzek 20.08.24: Playwright setup
+Die globalen Settings für Playwright findest du in der [playwright.config.ts](./playwright.config.ts).
+
+Einen ersten UI-Test für den login findest du unter `playwright/tests/ui`.  
+Führe das Testszenario beliebig fort!
+
+Als Startpunkt kannst du den Playwright Codegenerator verwenden: ``yarn run playwright:codegen``.  
+Achtung: Der Codegenerator verwendet in der Regel keine Test-Ids. Am besten den Test nach der Generierung auf 
+``page.getByTestId`` Selektoren umstellen.
 
 ### Tipps & Tricks
 
 * Die Anwendung verwendet den tag `data-test` für Test-Ids, z.B. `data-test="nav-top-new-transaction"` für den grünen NEW-Button.
   * Test-Ids sind der sicherste Weg, Elemente im DOM zu identifizieren und sollten daher vorzugsweise genutzt werden.
   * Beide Frameworks unterstützen das select via Test-Id (siehe z.B. login-Szenario)
+* Testgenerierung:
+  * Playwright Codegen: `yarn playwright codegen localhost:3000`
+  * Cypress: [Browser Plugin für Chrome (Cypress Chrome Recorder)](https://chromewebstore.google.com/detail/cypress-chrome-recorder/fellcphjglholofndfmmjmheedhomgin)
+* Playwright: Tests im UI-Mode starten
+  * ``yarn playwright test --ui``
+  * Ermöglicht es, den Verlauf eines Tests visuell und mit Console, Network Tab, etc. nachzuverfolgen.
 
 
 

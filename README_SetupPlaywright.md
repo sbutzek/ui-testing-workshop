@@ -15,9 +15,21 @@ Doku: https://playwright.dev/docs/intro
   * Run tests headless: ``yarn playwright test``
   * Headed: `yarn playwright test --headed`
   * UI Mode: ``yarn playwright test --ui``
+  * Codegen: `yarn playwright codegen localhost:3000`
+* playwright.config prüfen:
+  * baseUrl anpassen, falls diese in Tests verwendet werden soll
+  * Nicht gewünschte Browser (unter ``projects``) löschen (sonst wird jeder Test in 3 Browsern ausgeführt)
+  * Falls gewünscht webserver definieren (siehe #Zusätzliches Setup für CI Pipeline)
 
 ## Zusätzliches Setup für CI Pipeline
 
 * Start des Webservers definieren:
-  * In playwright.config.ts ``webServer`` Objekt einkommentieren und anpassen:
-  * 
+  * In playwright.config.ts ``webServer`` Objekt einkommentieren und anpassen (config für UI Testing!):
+  ```typescript
+      webServer: {
+        command: "npm run start react",
+        url: "http:localhost:3000",
+        reuseExistingServer: true,
+      },
+
+* Damit wird vor jedem Testrun geprüft, ob das Frontend gestartet ist und bei Bedarf der Startbefehl ausgeführt. 
