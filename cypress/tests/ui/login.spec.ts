@@ -2,8 +2,6 @@ const apiGraphQL = `${Cypress.env("apiUrl")}/graphql`;
 
 describe("Bank Accounts", function () {
   beforeEach(() => {
-    // cy.task("db:seed");
-
     cy.intercept("POST", "/login", {
       status: 200,
     }).as("login");
@@ -15,15 +13,28 @@ describe("Bank Accounts", function () {
       },
     }).as("getNotifications");
 
+    cy.intercept("GET", "/transactions/public", {
+      statusCode: 200,
+      body: {
+        results: [],
+      },
+    });
+
     cy.intercept("POST", apiGraphQL, (req) => {
       const { body } = req;
 
       if (body.hasOwnProperty("operationName") && body.operationName === "ListBankAccount") {
         req.alias = "gqlListBankAccountQuery";
+        req.reply(200, {
+          data: {
+            listBankAccount: null,
+          },
+        });
       }
 
       if (body.hasOwnProperty("operationName") && body.operationName === "CreateBankAccount") {
         req.alias = "gqlCreateBankAccountMutation";
+        req.reply(200);
       }
 
       if (body.hasOwnProperty("operationName") && body.operationName === "DeleteBankAccount") {
@@ -59,5 +70,10 @@ describe("Bank Accounts", function () {
     cy.getBySelLike("submit").click();
 
     cy.wait("@gqlCreateBankAccountMutation");
+
+    cy.getBySel("user-onboarding-dialog-title").should("contain", "Finished");
+    cy.getBySel("user-onboarding-dialog-content").should("contain", "You're all set!");
+    cy.visualSnapshot("Finished User Onboarding");
+    cy.getBySel("user-onboarding-next").click();
   });
 });
