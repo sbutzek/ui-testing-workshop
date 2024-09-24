@@ -10,7 +10,7 @@ import {
   Grid,
   useMediaQuery,
   useTheme,
-} from "@material-ui/core";
+} from "@mui/material";
 import {
   BaseActionObject,
   Interpreter,
@@ -41,7 +41,7 @@ export interface Props {
 
 const UserOnboardingContainer: React.FC<Props> = ({ authService, bankAccountsService }) => {
   const theme = useTheme();
-  const fullScreen = useMediaQuery(theme.breakpoints.down("sm"));
+  const fullScreen = useMediaQuery(theme.breakpoints.down("md"));
   const [bankAccountsState, sendBankAccounts] = useActor(bankAccountsService);
   const [authState, sendAuth] = useActor(authService);
   const [userOnboardingState, sendUserOnboarding] = useMachine(userOnboardingMachine);

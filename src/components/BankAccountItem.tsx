@@ -1,6 +1,6 @@
 import React from "react";
 
-import { Button, Grid, ListItem, Typography } from "@material-ui/core";
+import { Button, Grid, ListItem, Typography } from "@mui/material";
 import { BankAccount } from "../models";
 
 export interface BankAccountListItemProps {

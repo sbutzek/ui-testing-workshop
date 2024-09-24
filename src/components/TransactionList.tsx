@@ -1,5 +1,6 @@
 import React, { ReactNode } from "react";
-import { Button, Grid, ListSubheader, makeStyles, Paper } from "@material-ui/core";
+import { styled } from "@mui/material/styles";
+import { Paper, Button, ListSubheader, Grid } from "@mui/material";
 import { Link as RouterLink } from "react-router-dom";
 import { isEmpty } from "lodash/fp";
 
@@ -8,6 +9,18 @@ import { TransactionPagination, TransactionResponseItem } from "../models";
 import EmptyList from "./EmptyList";
 import TransactionInfiniteList from "./TransactionInfiniteList";
 import TransferMoneyIllustration from "./SvgUndrawTransferMoneyRywa";
+
+const PREFIX = "TransactionList";
+
+const classes = {
+  paper: `${PREFIX}-paper`,
+};
+
+const StyledPaper = styled(Paper)(({ theme }) => ({
+  [`&.${classes.paper}`]: {
+    paddingLeft: theme.spacing(1),
+  },
+}));
 
 export interface TransactionListProps {
   header: string;
@@ -19,12 +32,6 @@ export interface TransactionListProps {
   filterComponent: ReactNode;
 }
 
-const useStyles = makeStyles((theme) => ({
-  paper: {
-    paddingLeft: theme.spacing(1),
-  },
-}));
-
 const TransactionList: React.FC<TransactionListProps> = ({
   header,
   transactions,
@@ -34,13 +41,11 @@ const TransactionList: React.FC<TransactionListProps> = ({
   pagination,
   filterComponent,
 }) => {
-  const classes = useStyles();
-
   const showEmptyList = !isLoading && transactions?.length === 0;
   const showSkeleton = isLoading && isEmpty(pagination);
 
   return (
-    <Paper className={classes.paper}>
+    <StyledPaper className={classes.paper}>
       {filterComponent}
       <ListSubheader component="div">{header}</ListSubheader>
       {showSkeleton && <SkeletonList />}
@@ -80,7 +85,7 @@ const TransactionList: React.FC<TransactionListProps> = ({
           </Grid>
         </EmptyList>
       )}
-    </Paper>
+    </StyledPaper>
   );
 };
 

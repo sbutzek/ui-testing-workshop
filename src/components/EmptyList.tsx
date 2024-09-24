@@ -1,5 +1,5 @@
 import React from "react";
-import { Box, colors, Grid, Typography } from "@material-ui/core";
+import { Box, colors, Grid, Typography } from "@mui/material";
 
 const { grey } = colors;
 

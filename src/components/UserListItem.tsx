@@ -1,5 +1,5 @@
 import React from "react";
-import { Avatar, Grid, ListItem, ListItemAvatar, ListItemText } from "@material-ui/core";
+import { ListItem, ListItemText, ListItemAvatar, Avatar, Grid } from "@mui/material";
 
 import { User } from "../models";
 

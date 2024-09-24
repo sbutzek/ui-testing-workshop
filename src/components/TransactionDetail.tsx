@@ -1,8 +1,9 @@
 import React from "react";
-import { Avatar, Button, Grid, IconButton, makeStyles, Paper, Typography } from "@material-ui/core";
-import { AvatarGroup } from "@material-ui/lab";
-import { CommentRounded as CommentIcon, ThumbUpAltOutlined as LikeIcon } from "@material-ui/icons";
-import { TransactionRequestStatus, TransactionResponseItem, User } from "../models";
+import { styled } from "@mui/material/styles";
+import { Button, Typography, Grid, Avatar, Paper, IconButton } from "@mui/material";
+import { AvatarGroup } from "@mui/material";
+import { ThumbUpAltOutlined as LikeIcon, CommentRounded as CommentIcon } from "@mui/icons-material";
+import { TransactionResponseItem, TransactionRequestStatus, User } from "../models";
 import CommentForm from "./CommentForm";
 import {
   currentUserLikesTransaction,
@@ -13,34 +14,53 @@ import CommentsList from "./CommentList";
 import TransactionTitle from "./TransactionTitle";
 import TransactionAmount from "./TransactionAmount";
 
-const useStyles = makeStyles((theme) => ({
-  paper: {
+const PREFIX = "TransactionDetail";
+
+const classes = {
+  paper: `${PREFIX}-paper`,
+  paperComments: `${PREFIX}-paperComments`,
+  avatar: `${PREFIX}-avatar`,
+  headline: `${PREFIX}-headline`,
+  avatarLarge: `${PREFIX}-avatarLarge`,
+  avatarGroup: `${PREFIX}-avatarGroup`,
+  redButton: `${PREFIX}-redButton`,
+  greenButton: `${PREFIX}-greenButton`,
+};
+
+const StyledPaper = styled(Paper)(({ theme }) => ({
+  [`&.${classes.paper}`]: {
     padding: theme.spacing(2),
     display: "flex",
     overflow: "auto",
     flexDirection: "column",
   },
-  paperComments: {
+
+  [`& .${classes.paperComments}`]: {
     marginTop: theme.spacing(6),
     padding: theme.spacing(2),
     display: "flex",
     overflow: "auto",
     flexDirection: "column",
   },
-  avatar: {
+
+  [`& .${classes.avatar}`]: {
     width: theme.spacing(2),
   },
-  headline: {
+
+  [`& .${classes.headline}`]: {
     marginTop: theme.spacing(4),
   },
-  avatarLarge: {
+
+  [`& .${classes.avatarLarge}`]: {
     width: theme.spacing(7),
     height: theme.spacing(7),
   },
-  avatarGroup: {
+
+  [`& .${classes.avatarGroup}`]: {
     margin: 10,
   },
-  redButton: {
+
+  [`& .${classes.redButton}`]: {
     backgrounColor: "red",
     color: "#ffffff",
     backgroundColor: "red",
@@ -54,7 +74,8 @@ const useStyles = makeStyles((theme) => ({
       boxShadow: "none",
     },
   },
-  greenButton: {
+
+  [`& .${classes.greenButton}`]: {
     marginRight: theme.spacing(2),
     color: "#ffffff",
     backgroundColor: "#00C853",
@@ -85,10 +106,8 @@ const TransactionDetail: React.FC<TransactionProps> = ({
   transactionUpdate,
   currentUser,
 }) => {
-  const classes = useStyles();
-
   return (
-    <Paper className={classes.paper}>
+    <StyledPaper className={classes.paper}>
       <Typography
         component="h2"
         variant="h6"
@@ -106,18 +125,22 @@ const TransactionDetail: React.FC<TransactionProps> = ({
         data-test={`transaction-item-${transaction.id}`}
       >
         <Grid item className={classes.headline}>
-          <AvatarGroup className={classes.avatarGroup} max={2}>
-            <Avatar
-              data-test="transaction-sender-avatar"
-              className={classes.avatarLarge}
-              src={transaction.senderAvatar}
-            />
-            <Avatar
-              data-test="transaction-receiver-avatar"
-              className={classes.avatarLarge}
-              src={transaction.receiverAvatar}
-            />
-          </AvatarGroup>
+          <Grid container direction="row">
+            <AvatarGroup className={classes.avatarGroup} max={2}>
+              <Avatar
+                data-test="transaction-sender-avatar"
+                className={classes.avatarLarge}
+                src={transaction.senderAvatar}
+              />
+              <Avatar
+                data-test="transaction-receiver-avatar"
+                className={classes.avatarLarge}
+                src={transaction.receiverAvatar}
+              />
+            </AvatarGroup>
+            {/* eat up space to right of AvatarGroup: */}
+            <Grid item sx={{ width: "100%" }} />
+          </Grid>
           <Grid container direction="column" justifyContent="flex-start" alignItems="flex-start">
             <Grid item></Grid>
             <Grid item>
@@ -157,6 +180,7 @@ const TransactionDetail: React.FC<TransactionProps> = ({
                 disabled={currentUserLikesTransaction(currentUser, transaction)}
                 onClick={() => transactionLike(transaction.id)}
                 data-test={`transaction-like-button-${transaction.id}`}
+                size="large"
               >
                 <LikeIcon />
               </IconButton>
@@ -213,7 +237,7 @@ const TransactionDetail: React.FC<TransactionProps> = ({
           <CommentsList comments={transaction.comments} />
         </Paper>
       )}
-    </Paper>
+    </StyledPaper>
   );
 };
 
