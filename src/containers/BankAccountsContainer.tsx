@@ -1,6 +1,12 @@
 import React, { useEffect } from "react";
 import { useActor } from "@xstate/react";
-import { BaseActionObject, Interpreter, ResolveTypegenMeta, ServiceMap, TypegenDisabled } from "xstate";
+import {
+  BaseActionObject,
+  Interpreter,
+  ResolveTypegenMeta,
+  ServiceMap,
+  TypegenDisabled,
+} from "xstate";
 import { Link as RouterLink, useRouteMatch } from "react-router-dom";
 import { Button, Grid, makeStyles, Paper, Typography } from "@material-ui/core";
 

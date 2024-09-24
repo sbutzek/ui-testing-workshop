@@ -11,7 +11,13 @@ import {
   useMediaQuery,
   useTheme,
 } from "@material-ui/core";
-import { BaseActionObject, Interpreter, ResolveTypegenMeta, ServiceMap, TypegenDisabled } from "xstate";
+import {
+  BaseActionObject,
+  Interpreter,
+  ResolveTypegenMeta,
+  ServiceMap,
+  TypegenDisabled,
+} from "xstate";
 import { isEmpty } from "lodash/fp";
 import { useActor, useMachine } from "@xstate/react";
 

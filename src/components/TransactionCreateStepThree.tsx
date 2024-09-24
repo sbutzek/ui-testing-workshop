@@ -1,7 +1,13 @@
 import React from "react";
 import { Link as RouterLink, useHistory } from "react-router-dom";
 import { Avatar, Box, Button, Grid, makeStyles, Paper, Typography } from "@material-ui/core";
-import { BaseActionObject, Interpreter, ResolveTypegenMeta, ServiceMap, TypegenDisabled } from "xstate";
+import {
+  BaseActionObject,
+  Interpreter,
+  ResolveTypegenMeta,
+  ServiceMap,
+  TypegenDisabled,
+} from "xstate";
 import {
   CreateTransactionMachineContext,
   CreateTransactionMachineEvents,

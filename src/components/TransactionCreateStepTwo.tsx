@@ -2,7 +2,17 @@ import React, { useState } from "react";
 import NumberFormat from "react-number-format";
 import { Field, FieldProps, Form, Formik } from "formik";
 import { number, object, string } from "yup";
-import { Avatar, Box, Button, Container, Grid, makeStyles, Paper, TextField, Typography } from "@material-ui/core";
+import {
+  Avatar,
+  Box,
+  Button,
+  Container,
+  Grid,
+  makeStyles,
+  Paper,
+  TextField,
+  Typography,
+} from "@material-ui/core";
 import { User } from "../models";
 
 const validationSchema = object({
