@@ -1,7 +1,7 @@
 import React from "react";
-import { makeStyles, TextField, Button, Grid } from "@material-ui/core";
-import { Formik, Form, Field, FieldProps } from "formik";
-import { string, object } from "yup";
+import { Button, Grid, makeStyles, TextField } from "@material-ui/core";
+import { Field, FieldProps, Form, Formik } from "formik";
+import { object, string } from "yup";
 import { BankAccountPayload, User } from "../models";
 import { useHistory } from "react-router";
 
@@ -119,7 +119,13 @@ const BankAccountForm: React.FC<BankAccountFormProps> = ({
               />
             )}
           </Field>
-          <Grid container spacing={2} direction="row" justify="flex-start" alignItems="flex-start">
+          <Grid
+            container
+            spacing={2}
+            direction="row"
+            justifyContent="flex-start"
+            alignItems="flex-start"
+          >
             <Grid item>
               <Button
                 type="submit"

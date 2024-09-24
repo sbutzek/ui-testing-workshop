@@ -4,26 +4,26 @@ import { Interpreter } from "xstate";
 import { useActor } from "@xstate/react";
 import clsx from "clsx";
 import {
-  useMediaQuery,
-  useTheme,
-  makeStyles,
-  Drawer,
-  List,
+  Avatar,
   Divider,
+  Drawer,
+  Grid,
+  List,
   ListItem,
   ListItemIcon,
   ListItemText,
-  Grid,
-  Avatar,
+  makeStyles,
   Typography,
+  useMediaQuery,
+  useTheme,
 } from "@material-ui/core";
 import { Link as RouterLink } from "react-router-dom";
 import {
-  Home as HomeIcon,
-  Person as PersonIcon,
-  ExitToApp as LogoutIcon,
-  Notifications as NotificationsIcon,
   AccountBalance as AccountBalanceIcon,
+  ExitToApp as LogoutIcon,
+  Home as HomeIcon,
+  Notifications as NotificationsIcon,
+  Person as PersonIcon,
 } from "@material-ui/icons";
 
 import { formatAmount } from "../utils/transactionUtils";
@@ -194,7 +194,7 @@ const NavDrawer: React.FC<Props> = ({
       <Grid
         container
         direction="row"
-        justify="space-between"
+        justifyContent="space-between"
         alignItems="center"
         className={drawerOpen ? classes.userProfile : classes.userProfileHidden}
       >
@@ -233,7 +233,7 @@ const NavDrawer: React.FC<Props> = ({
       <Grid
         container
         direction="row"
-        justify="space-between"
+        justifyContent="space-between"
         alignItems="center"
         className={drawerOpen ? classes.userProfile : classes.userProfileHidden}
       >

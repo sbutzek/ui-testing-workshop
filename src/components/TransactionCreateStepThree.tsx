@@ -1,13 +1,7 @@
 import React from "react";
 import { Link as RouterLink, useHistory } from "react-router-dom";
-import { Paper, Typography, Grid, Avatar, Box, Button, makeStyles } from "@material-ui/core";
-import {
-  BaseActionObject,
-  Interpreter,
-  ResolveTypegenMeta,
-  ServiceMap,
-  TypegenDisabled,
-} from "xstate";
+import { Avatar, Box, Button, Grid, makeStyles, Paper, Typography } from "@material-ui/core";
+import { BaseActionObject, Interpreter, ResolveTypegenMeta, ServiceMap, TypegenDisabled } from "xstate";
 import {
   CreateTransactionMachineContext,
   CreateTransactionMachineEvents,
@@ -59,9 +53,15 @@ const TransactionCreateStepThree: React.FC<TransactionCreateStepThreeProps> = ({
         height={200}
         style={{ paddingTop: "5%" }}
       >
-        <Grid container direction="row" justify="space-around" alignItems="center" spacing={4}>
+        <Grid
+          container
+          direction="row"
+          justifyContent="space-around"
+          alignItems="center"
+          spacing={4}
+        >
           <Grid item>
-            <Grid container direction="column" justify="flex-start" alignItems="center">
+            <Grid container direction="column" justifyContent="flex-start" alignItems="center">
               <Grid item>
                 <Avatar src={receiver.avatar} />
               </Grid>
@@ -81,7 +81,7 @@ const TransactionCreateStepThree: React.FC<TransactionCreateStepThreeProps> = ({
         height="100"
         style={{ paddingBottom: "5%" }}
       >
-        <Grid container direction="row" justify="center" alignItems="center">
+        <Grid container direction="row" justifyContent="center" alignItems="center">
           <Grid item>
             <Typography component="h2" variant="h6" color="primary" gutterBottom>
               {transactionDetails?.transactionType === "payment" ? "Paid " : "Requested "}
@@ -99,7 +99,7 @@ const TransactionCreateStepThree: React.FC<TransactionCreateStepThreeProps> = ({
         height="100"
         style={{ paddingBottom: "5%" }}
       >
-        <Grid container direction="row" justify="space-around" alignItems="center">
+        <Grid container direction="row" justifyContent="space-around" alignItems="center">
           <Grid item>
             <Button
               variant="contained"

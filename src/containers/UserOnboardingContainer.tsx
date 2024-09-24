@@ -1,23 +1,17 @@
 import React, { useEffect } from "react";
 import {
-  Button,
   Box,
-  useTheme,
-  useMediaQuery,
-  Grid,
+  Button,
   Dialog,
   DialogActions,
   DialogContent,
   DialogContentText,
   DialogTitle,
+  Grid,
+  useMediaQuery,
+  useTheme,
 } from "@material-ui/core";
-import {
-  BaseActionObject,
-  Interpreter,
-  ResolveTypegenMeta,
-  ServiceMap,
-  TypegenDisabled,
-} from "xstate";
+import { BaseActionObject, Interpreter, ResolveTypegenMeta, ServiceMap, TypegenDisabled } from "xstate";
 import { isEmpty } from "lodash/fp";
 import { useActor, useMachine } from "@xstate/react";
 
@@ -112,7 +106,7 @@ const UserOnboardingContainer: React.FC<Props> = ({ authService, bankAccountsSer
         </Box>
       </DialogContent>
       <DialogActions>
-        <Grid container justify="space-between">
+        <Grid container justifyContent="space-between">
           <Grid item>
             <Button
               style={{ paddingRight: "80%" }}

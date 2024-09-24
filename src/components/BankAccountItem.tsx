@@ -1,6 +1,6 @@
 import React from "react";
 
-import { Grid, Typography, Button, ListItem } from "@material-ui/core";
+import { Button, Grid, ListItem, Typography } from "@material-ui/core";
 import { BankAccount } from "../models";
 
 export interface BankAccountListItemProps {
@@ -12,9 +12,11 @@ const BankAccountListItem: React.FC<BankAccountListItemProps> = ({
   bankAccount,
   deleteBankAccount,
 }) => {
+  debugger;
+  console.log(bankAccount);
   return (
     <ListItem data-test={`bankaccount-list-item-${bankAccount.id}`}>
-      <Grid container direction="row" justify="space-between" alignItems="flex-start">
+      <Grid container direction="row" justifyContent="space-between" alignItems="flex-start">
         <Grid item>
           <Typography variant="body1" color="primary" gutterBottom>
             {bankAccount.bankName} {bankAccount.isDeleted ? "(Deleted)" : undefined}

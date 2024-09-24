@@ -1,18 +1,8 @@
 import React, { useState } from "react";
 import NumberFormat from "react-number-format";
-import { Formik, Form, Field, FieldProps } from "formik";
-import { string, object, number } from "yup";
-import {
-  Paper,
-  Typography,
-  Button,
-  Grid,
-  Container,
-  Avatar,
-  Box,
-  TextField,
-  makeStyles,
-} from "@material-ui/core";
+import { Field, FieldProps, Form, Formik } from "formik";
+import { number, object, string } from "yup";
+import { Avatar, Box, Button, Container, Grid, makeStyles, Paper, TextField, Typography } from "@material-ui/core";
 import { User } from "../models";
 
 const validationSchema = object({
@@ -96,7 +86,7 @@ const TransactionCreateStepTwo: React.FC<TransactionCreateStepTwoProps> = ({
   return (
     <Paper className={classes.paper} elevation={0}>
       <Box display="flex" height={200} alignItems="center" justifyContent="center">
-        <Grid container direction="column" justify="flex-start" alignItems="center">
+        <Grid container direction="column" justifyContent="flex-start" alignItems="center">
           <Grid item>
             <Avatar src={receiver.avatar} />
           </Grid>
@@ -167,7 +157,13 @@ const TransactionCreateStepTwo: React.FC<TransactionCreateStepTwoProps> = ({
                   />
                 )}
               </Field>
-              <Grid container spacing={2} direction="row" justify="center" alignItems="center">
+              <Grid
+                container
+                spacing={2}
+                direction="row"
+                justifyContent="center"
+                alignItems="center"
+              >
                 <Grid item>
                   <Button
                     type="submit"

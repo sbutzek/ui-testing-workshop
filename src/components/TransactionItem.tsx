@@ -1,19 +1,19 @@
 import React from "react";
 import { useHistory } from "react-router";
 import {
-  ListItem,
-  Typography,
-  Grid,
   Avatar,
-  ListItemAvatar,
-  Paper,
   Badge,
-  withStyles,
-  Theme,
   createStyles,
+  Grid,
+  ListItem,
+  ListItemAvatar,
   makeStyles,
+  Paper,
+  Theme,
+  Typography,
+  withStyles,
 } from "@material-ui/core";
-import { ThumbUpAltOutlined as LikeIcon, CommentRounded as CommentIcon } from "@material-ui/icons";
+import { CommentRounded as CommentIcon, ThumbUpAltOutlined as LikeIcon } from "@material-ui/icons";
 import { TransactionResponseItem } from "../models";
 import TransactionTitle from "./TransactionTitle";
 import TransactionAmount from "./TransactionAmount";
@@ -100,7 +100,7 @@ const TransactionItem: React.FC<TransactionProps> = ({ transaction }) => {
                 <Grid
                   container
                   direction="row"
-                  justify="flex-start"
+                  justifyContent="flex-start"
                   alignItems="flex-start"
                   spacing={1}
                   className={classes.socialStats}

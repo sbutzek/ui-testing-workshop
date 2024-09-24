@@ -1,24 +1,23 @@
 import React from "react";
 import {
-  makeStyles,
-  Grid,
-  Popover,
-  Typography,
-  Slider,
-  Chip,
   Button,
-  useTheme,
-  useMediaQuery,
+  Chip,
   Drawer,
+  Grid,
+  makeStyles,
+  Popover,
+  Slider,
+  Typography,
+  useMediaQuery,
+  useTheme,
 } from "@material-ui/core";
 import { ArrowDropDown as ArrowDropDownIcon } from "@material-ui/icons";
 import { TransactionAmountRangePayload } from "../models";
 import {
-  formatAmountRangeValues,
   amountRangeValueText,
   amountRangeValueTextLabel,
+  formatAmountRangeValues,
   padAmountWithZeros,
-  //hasAmountQueryFields
 } from "../utils/transactionUtils";
 import { first, last } from "lodash/fp";
 
@@ -82,7 +81,7 @@ const TransactionListAmountRangeFilter: React.FC<TransactionListAmountRangeFilte
       data-test="transaction-list-filter-amount-range"
       container
       direction="column"
-      justify="flex-start"
+      justifyContent="flex-start"
       alignItems="flex-start"
       spacing={1}
       className={classes.amountRangeRoot}
@@ -91,7 +90,7 @@ const TransactionListAmountRangeFilter: React.FC<TransactionListAmountRangeFilte
         <Grid
           container
           direction="row"
-          justify="space-between"
+          justifyContent="space-between"
           alignItems="center"
           className={classes.amountRangeTitleRow}
         >

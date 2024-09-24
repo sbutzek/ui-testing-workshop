@@ -1,10 +1,10 @@
 import React, { ReactNode } from "react";
-import { makeStyles, Paper, Button, ListSubheader, Grid } from "@material-ui/core";
+import { Button, Grid, ListSubheader, makeStyles, Paper } from "@material-ui/core";
 import { Link as RouterLink } from "react-router-dom";
 import { isEmpty } from "lodash/fp";
 
 import SkeletonList from "./SkeletonList";
-import { TransactionResponseItem, TransactionPagination } from "../models";
+import { TransactionPagination, TransactionResponseItem } from "../models";
 import EmptyList from "./EmptyList";
 import TransactionInfiniteList from "./TransactionInfiniteList";
 import TransferMoneyIllustration from "./SvgUndrawTransferMoneyRywa";
@@ -56,7 +56,7 @@ const TransactionList: React.FC<TransactionListProps> = ({
           <Grid
             container
             direction="column"
-            justify="center"
+            justifyContent="center"
             alignItems="center"
             style={{ width: "100%" }}
             spacing={2}
