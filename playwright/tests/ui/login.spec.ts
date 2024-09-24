@@ -1,4 +1,5 @@
-import { expect, Page, test } from "@playwright/test";
+import { expect, test } from "@playwright/test";
+import { HttpMocks } from "./HttpMocks";
 
 test("login", async ({ page }) => {
   await page.route("*/**/login", async (route) => {
@@ -18,7 +19,8 @@ test("login", async ({ page }) => {
       listBankAccount: null,
     },
   };
-  await mockGraphqlRequests(page, emptyBankAccountResponseBody);
+  const httpMocks = new HttpMocks(page);
+  await httpMocks.mockGraphqlRequests(emptyBankAccountResponseBody);
 
   // Login
   await page.goto("http://localhost:3000/");
@@ -45,56 +47,9 @@ test("login", async ({ page }) => {
     .getByPlaceholder("Routing Number")
     .fill("987654321");
 
-  const bankAccountId = "MEKwhXNLi";
-  const bankName = "Quokka Bank";
-  await updateBankAccountRequestMock(page, bankAccountId, bankName);
-
   await page.getByTestId("bankaccount-submit").click();
   await expect(page.getByTestId("user-onboarding-dialog-title")).toHaveText("Finished");
 
   await page.getByTestId("user-onboarding-next").click();
   await page.getByTestId("sidenav-bankaccounts").click();
-  // TODO:  sebastian.butzek 23.09.24: Find out why bank account is not loaded
-  // await expect(page.getByTestId("bankaccount-list-item-" + bankAccountId)).toHaveText(bankName);
 });
-
-const mockGraphqlRequests = async (page: Page, listBankAccountResponseBody: any) => {
-  await page.route("*/**/graphql", async (route) => {
-    const requestBody = route.request().postData();
-    if (!!requestBody && requestBody.indexOf("ListBankAccount") >= 0) {
-      await route.fulfill({
-        json: listBankAccountResponseBody,
-        status: 200,
-      });
-    }
-
-    if (!!requestBody && requestBody.indexOf("CreateBankAccount") >= 0) {
-      await route.fulfill({
-        status: 200,
-      });
-    }
-  });
-};
-
-const updateBankAccountRequestMock = async (
-  page: Page,
-  bankAccountId: string,
-  bankName: string
-) => {
-  const updatedBankAccountResponseBody = {
-    data: {
-      listBankAccount: {
-        id: bankAccountId,
-        uuid: "3962360b-8f35-4aed-8b18-86b569f3164f",
-        userId: "vAPijyVwf",
-        bankName: bankName,
-        accountNumber: "987645132",
-        routingNumber: "123456789",
-        isDeleted: false,
-        createdAt: "2024-08-15T12:13:09.505Z",
-        modifiedAt: "2024-08-15T12:13:09.505Z",
-      },
-    },
-  };
-  await mockGraphqlRequests(page, updatedBankAccountResponseBody);
-};
