@@ -143,7 +143,7 @@ yarn cypress:open
 | Type      | Location                                 |
 | --------- | ---------------------------------------- |
 | api       | [cypress/tests/api](./cypress/tests/api) |
-| ui        | [cypress/tests/ui](./cypress/tests/e2e)   |
+| ui        | [cypress/tests/ui](./cypress/tests/e2e)  |
 | component | [src/(next to component)](./src)         |
 | unit      | [`src/__tests__`](./src/__tests__)       |
 

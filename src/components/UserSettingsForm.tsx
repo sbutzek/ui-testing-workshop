@@ -67,82 +67,81 @@ const UserSettingsForm: React.FC<UserSettingsProps> = ({ userProfile, updateUser
     >
       {({ isValid, isSubmitting }) => (
         <MarginHonoringDiv>
-          <Form  data-test="user-settings-form">
-          <Field name="firstName">
-            {({ field, meta: { error, value, initialValue, touched } }: FieldProps) => (
-              <TextField
-                variant="outlined"
-                margin="dense"
-                fullWidth
-                required
-                id={"user-settings-firstName-input"}
-                type="text"
-                placeholder="First Name"
-                inputProps={{ "data-test": "user-settings-firstName-input" }}
-                error={(touched || value !== initialValue) && Boolean(error)}
-                helperText={touched || value !== initialValue ? error : ""}
-                {...field}
-              />
-            )}
-          </Field>
-          <Field name="lastName">
-            {({ field, meta: { error, value, initialValue, touched } }: FieldProps) => (
-              <TextField
-                variant="outlined"
-                margin="dense"
-                fullWidth
-                required
-                id={"user-settings-lastName-input"}
-                type="text"
-                placeholder="Last Name"
-                inputProps={{ "data-test": "user-settings-lastName-input" }}
-                error={(touched || value !== initialValue) && Boolean(error)}
-                helperText={touched || value !== initialValue ? error : ""}
-                {...field}
-              />
-            )}
-          </Field>
-          <Field name="email">
-            {({ field, meta: { error, value, initialValue, touched } }: FieldProps) => (
-              <TextField
-                variant="outlined"
-                margin="dense"
-                fullWidth
-                required
-                id={"user-settings-email-input"}
-                type="text"
-                placeholder="Email"
-                inputProps={{ "data-test": "user-settings-email-input" }}
-                error={(touched || value !== initialValue) && Boolean(error)}
-                helperText={touched || value !== initialValue ? error : ""}
-                {...field}
-              />
-            )}
-          </Field>
-          <Field name="phoneNumber">
-            {({ field, meta: { error, value, initialValue, touched } }: FieldProps) => (
-              <TextField
-                variant="outlined"
-                margin="dense"
-                fullWidth
-                required
-                id={"user-settings-phoneNumber-input"}
-                type="text"
-                placeholder="Phone Number"
-                inputProps={{ "data-test": "user-settings-phoneNumber-input" }}
-                error={(touched || value !== initialValue) && Boolean(error)}
-                helperText={touched || value !== initialValue ? error : ""}
-                {...field}
-              />
-            )}
-          </Field>
-          <Grid
-            container
-            spacing={2}
-            direction="row"
-            justifyContent="flex-start"
-            alignItems="flex-start"
-
+          <Form data-test="user-settings-form">
+            <Field name="firstName">
+              {({ field, meta: { error, value, initialValue, touched } }: FieldProps) => (
+                <TextField
+                  variant="outlined"
+                  margin="dense"
+                  fullWidth
+                  required
+                  id={"user-settings-firstName-input"}
+                  type="text"
+                  placeholder="First Name"
+                  inputProps={{ "data-test": "user-settings-firstName-input" }}
+                  error={(touched || value !== initialValue) && Boolean(error)}
+                  helperText={touched || value !== initialValue ? error : ""}
+                  {...field}
+                />
+              )}
+            </Field>
+            <Field name="lastName">
+              {({ field, meta: { error, value, initialValue, touched } }: FieldProps) => (
+                <TextField
+                  variant="outlined"
+                  margin="dense"
+                  fullWidth
+                  required
+                  id={"user-settings-lastName-input"}
+                  type="text"
+                  placeholder="Last Name"
+                  inputProps={{ "data-test": "user-settings-lastName-input" }}
+                  error={(touched || value !== initialValue) && Boolean(error)}
+                  helperText={touched || value !== initialValue ? error : ""}
+                  {...field}
+                />
+              )}
+            </Field>
+            <Field name="email">
+              {({ field, meta: { error, value, initialValue, touched } }: FieldProps) => (
+                <TextField
+                  variant="outlined"
+                  margin="dense"
+                  fullWidth
+                  required
+                  id={"user-settings-email-input"}
+                  type="text"
+                  placeholder="Email"
+                  inputProps={{ "data-test": "user-settings-email-input" }}
+                  error={(touched || value !== initialValue) && Boolean(error)}
+                  helperText={touched || value !== initialValue ? error : ""}
+                  {...field}
+                />
+              )}
+            </Field>
+            <Field name="phoneNumber">
+              {({ field, meta: { error, value, initialValue, touched } }: FieldProps) => (
+                <TextField
+                  variant="outlined"
+                  margin="dense"
+                  fullWidth
+                  required
+                  id={"user-settings-phoneNumber-input"}
+                  type="text"
+                  placeholder="Phone Number"
+                  inputProps={{ "data-test": "user-settings-phoneNumber-input" }}
+                  error={(touched || value !== initialValue) && Boolean(error)}
+                  helperText={touched || value !== initialValue ? error : ""}
+                  {...field}
+                />
+              )}
+            </Field>
+            <Grid
+              container
+              spacing={2}
+              direction="row"
+              justifyContent="flex-start"
+              alignItems="flex-start"
             >
               <Grid item>
                 <Button

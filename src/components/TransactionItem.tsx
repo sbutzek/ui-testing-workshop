@@ -4,7 +4,12 @@ import { useHistory } from "react-router";
 import {
   Avatar,
   Badge,
+  Grid,
+  ListItem,
+  ListItemAvatar,
+  Paper,
   Theme,
+  Typography,
 } from "@mui/material";
 import { ThumbUpAltOutlined as LikeIcon, CommentRounded as CommentIcon } from "@mui/icons-material";
 import { TransactionResponseItem } from "../models";

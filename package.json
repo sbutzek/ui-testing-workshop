@@ -194,7 +194,7 @@
     "playwright:headless": "playwright test",
     "playwright:headed": "playwright test --headed",
     "playwright:ui": "playwright test --ui",
-    "playwright:debug":  "playwright test --debug",
+    "playwright:debug": "playwright test --debug",
     "playwright:codegen": "playwright codegen localhost:3000"
   },
   "engines": {

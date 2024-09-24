@@ -5,15 +5,14 @@ import { Interpreter } from "xstate";
 import { useActor } from "@xstate/react";
 import clsx from "clsx";
 import {
-  useMediaQuery,
-  useTheme,
+  Avatar,
+  Divider,
   Drawer,
   Grid,
   List,
   ListItem,
   ListItemIcon,
   ListItemText,
-  makeStyles,
   Typography,
   useMediaQuery,
   useTheme,
