@@ -61,9 +61,13 @@ Achtung: Der Codegenerator verwendet in der Regel keine Test-Ids. Am besten den 
 * Testgenerierung:
   * Playwright Codegen: `yarn playwright codegen localhost:3000`
   * Cypress: [Browser Plugin für Chrome (Cypress Chrome Recorder)](https://chromewebstore.google.com/detail/cypress-chrome-recorder/fellcphjglholofndfmmjmheedhomgin)
-* Playwright: Tests im UI-Mode starten
-  * ``yarn playwright test --ui``
+* Tests im UI-Mode starten:
+  * Playwright: ``yarn playwright test --ui``
+  * Cypress: ``yarn cypress open``
   * Ermöglicht es, den Verlauf eines Tests visuell und mit Console, Network Tab, etc. nachzuverfolgen.
+* Einzelnen Test übers Terminal starten: 
+  * Playwright: Identifier oder filename des gewünschten Tests ans command anhängen, bspw. ``yarn run playwright test login``
+  * Cypress: ``yarn cypress run --spec cypress/tests/ui/login.spec.ts``
 
 
 
