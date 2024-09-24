@@ -12,8 +12,6 @@ const BankAccountListItem: React.FC<BankAccountListItemProps> = ({
   bankAccount,
   deleteBankAccount,
 }) => {
-  debugger;
-  console.log(bankAccount);
   return (
     <ListItem data-test={`bankaccount-list-item-${bankAccount.id}`}>
       <Grid container direction="row" justifyContent="space-between" alignItems="flex-start">

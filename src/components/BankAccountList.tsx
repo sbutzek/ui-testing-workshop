@@ -11,6 +11,7 @@ export interface BankAccountListProps {
 }
 
 const BankAccountList: React.FC<BankAccountListProps> = ({ bankAccounts, deleteBankAccount }) => {
+  console.log("Bankaccounts loaded: " + bankAccounts[0]);
   return (
     <>
       {bankAccounts?.length > 0 ? (
