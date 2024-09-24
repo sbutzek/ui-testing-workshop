@@ -7,7 +7,7 @@ test("bank-account", async ({ page }) => {
 
   const bankAccountId = "MEKwhXNLi";
   const bankName = "Quokka Bank";
-  await updateBankAccountRequestMock(httpMocks, bankAccountId, bankName);
+  await mockBankAccountRequest(httpMocks, bankAccountId, bankName);
 
   // Login
   await page.goto("http://localhost:3000/");
@@ -18,10 +18,10 @@ test("bank-account", async ({ page }) => {
 
   // Assert Bankaccount
   await page.getByTestId("sidenav-bankaccounts").click();
-  await expect(page.getByTestId("bankaccount-list-item-" + bankAccountId)).toHaveText(bankName);
+  await expect(page.getByTestId("bankaccount-list-item-" + bankAccountId)).toContainText(bankName);
 });
 
-const updateBankAccountRequestMock = async (
+const mockBankAccountRequest = async (
   httpMocks: HttpMocks,
   bankAccountId: string,
   bankName: string

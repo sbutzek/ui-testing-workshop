@@ -77,17 +77,19 @@ describe("Bank Accounts", function () {
         req.alias = "gqlListBankAccountQuery";
         req.reply(200, {
           data: {
-            listBankAccount: {
-              id: bankAccountId,
-              uuid: "3962360b-8f35-4aed-8b18-86b569f3164f",
-              userId: "vAPijyVwf",
-              bankName: bankName,
-              accountNumber: "987645132",
-              routingNumber: "123456789",
-              isDeleted: false,
-              createdAt: "2024-08-15T12:13:09.505Z",
-              modifiedAt: "2024-08-15T12:13:09.505Z",
-            },
+            listBankAccount: [
+              {
+                id: bankAccountId,
+                uuid: "3962360b-8f35-4aed-8b18-86b569f3164f",
+                userId: "vAPijyVwf",
+                bankName: bankName,
+                accountNumber: "987645132",
+                routingNumber: "123456789",
+                isDeleted: false,
+                createdAt: "2024-08-15T12:13:09.505Z",
+                modifiedAt: "2024-08-15T12:13:09.505Z",
+              },
+            ],
           },
         });
       }
@@ -103,6 +105,6 @@ describe("Bank Accounts", function () {
     cy.getBySel("user-onboarding-next").click();
 
     cy.getBySel("sidenav-bankaccounts").click();
-    // cy.getBySel("bankaccount-list-item-" + bankAccountId).should("contain", bankName);
+    cy.getBySel("bankaccount-list-item-" + bankAccountId).should("contain", bankName);
   });
 });
