@@ -25,7 +25,6 @@
 Auf dem `develop` branch ist das grundsätzliche Setup für sowohl Cypress als auch Playwright bereits vorhanden
 und du kannst direkt mit dem Testing beginnen.
 Wenn du das Setup selbst erstellen möchtest, wechsle bitte auf den branch `workshop-no-setup`.
-// TODO: sebastian.butzek 20.08.24: branch ohne setup erstellen
 
 ## Den ersten UI Test schreiben
 
