@@ -13,7 +13,18 @@ Doku: https://docs.cypress.io/guides/getting-started/installing-cypress
 - Es macht Sinn, das Standard-spec-pattern zu überschreiben. Dazu in der angelegten ``cypress.config.ts`` im `e2e`-Block setzen:
  - ``specPattern: "cypress/**/*.spec.{js,jsx,ts,tsx}"``
 - Für unsere Anwendung kann zusätzlich die baseUrl gesetzt werden: `baseUrl: "http://localhost:3000"`
+
+## Einen ersten Test erstellen
+
 - Falls noch nicht geschehen, erste .spec file anlegen, z.B.: ```cypress/ui/login.spec.ts```
 - In der geöffneten Cypress App sollten nun die angelegten Testfiles unter ``Specs`` sichtbar und ausführbar sein (im Browser unter http://localhost:3000/__/#/specs)
+- Tests können in jest-Syntax geschrieben werden, z.B.:
+    ```typescript
+    describe("login", () => {
+      it("should visit login", () => {
+        cy.visit("/");
+      });
+    });
+    ```
+- Alles Weitere findest du in der [Workshop Readme](./README_Workshop.md). Happy Testing!
 
-**Happy Testing!**
