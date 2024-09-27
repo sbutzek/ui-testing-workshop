@@ -26,5 +26,6 @@ Doku: https://docs.cypress.io/guides/getting-started/installing-cypress
       });
     });
     ```
+- Natürlich kann Cypress auch über die command line gesteuert werden: https://docs.cypress.io/guides/guides/command-line
 - Alles Weitere findest du in der [Workshop Readme](./README_Workshop.md). Happy Testing!
 
