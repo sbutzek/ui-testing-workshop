@@ -16,7 +16,6 @@
     "noEmit": true,
     "jsx": "react-jsx",
     "noFallthroughCasesInSwitch": true,
-    "types": ["cypress"]
   },
   "lib": ["es2015"],
   "include": [
@@ -24,7 +23,6 @@
     "scripts",
     "backend",
     "src/__tests__",
-    "cypress.d.ts",
     "src/utils/portUtils.ts"
   ]
 }
