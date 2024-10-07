@@ -14,6 +14,7 @@
   - Username: `bblub`
   - Passwort: `Testing123`
   - Alternativ Sign-Up Prozess durchlaufen (Achtung: Selbst angelegte user werden beim Neustart der Anwendung gelöscht).
+    - Validierung für Account Number und Routing Number: Jeweils 9 Zahlen.
 - 3 Minuten explorativ durch die Anwendung klicken. Dabei im Netzwerktab beobachten, welche http-calls rausgehen.
 - Beispielszenarien:
   - Neuen Bankaccount anlegen
@@ -40,6 +41,13 @@ Die E2E-Tests können als Inspiration für UI-Tests-Szenarien dienen.
 Im gleichen Verzeichnis findest du auch ein `ui` package.  
 Hier gibt es bereits ein Szenario für den Login, der nach dem Start der Anwendung zwingend durchgeführt werden muss.
 Das Szenario kann nun beliebig fortgesetzt werden.
+
+Starten der Tests:
+* Frontend starten: `yarn run start:react`. Um sicherzugehen, dass nicht das echte Backend verwendet wird den evtl. vorher gestarteten Prozess beenden.
+* Cypress starten: `yarn run cypress:open`. 
+* In der sich öffnenden Anwendung `E2E Testing` wählen. Danach gewünschten Browser auswählen.
+* Im Browser wird die package-Struktur der existierenden Tests abgebildet. Unter ``specs`` ganz nach unten scrollen zum package `ui`.
+* ``login.spec.ts`` auswählen.
 
 Wichtig: Vor dem Start des Tests muss das Frontend gestartet sein! (`yarn run start:react`).  
 Um sicher zu sein, dass nicht das echte Backend verwendet wird nur das Frontend starten, nicht die gesamte Anwendung!

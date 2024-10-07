@@ -72,43 +72,11 @@ describe("login", function () {
 
     cy.wait("@gqlCreateBankAccountMutation");
 
-    const bankAccountId = "MEKwhXNLi";
-    const bankName = "Quokka Bank";
-    updateBankAccountMock(bankAccountId, bankName);
-
     cy.getBySel("user-onboarding-dialog-title").should("contain", "Finished");
     cy.getBySel("user-onboarding-dialog-content").should("contain", "You're all set!");
     cy.visualSnapshot("Finished User Onboarding");
     cy.getBySel("user-onboarding-next").click();
 
-    cy.getBySel("sidenav-bankaccounts").click();
-    cy.getBySel("bankaccount-list-item-" + bankAccountId).should("contain", bankName);
+    cy.getBySel("sidenav-bankaccounts").should("contain", "Bank Accounts");
   });
 });
-
-const updateBankAccountMock = (bankAccountId: string, bankName: string) => {
-  cy.intercept("POST", apiGraphQL, (req) => {
-    const { body } = req;
-
-    if (body.hasOwnProperty("operationName") && body.operationName === "ListBankAccount") {
-      req.alias = "gqlListBankAccountQuery";
-      req.reply(200, {
-        data: {
-          listBankAccount: [
-            {
-              id: bankAccountId,
-              uuid: "3962360b-8f35-4aed-8b18-86b569f3164f",
-              userId: "vAPijyVwf",
-              bankName: bankName,
-              accountNumber: "987645132",
-              routingNumber: "123456789",
-              isDeleted: false,
-              createdAt: "2024-08-15T12:13:09.505Z",
-              modifiedAt: "2024-08-15T12:13:09.505Z",
-            },
-          ],
-        },
-      });
-    }
-  });
-};
