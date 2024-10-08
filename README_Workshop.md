@@ -16,8 +16,9 @@
   - Alternativ Sign-Up Prozess durchlaufen (Achtung: Selbst angelegte user werden beim Neustart der Anwendung gelöscht).
     - Validierung für Account Number und Routing Number: Jeweils 9 Zahlen.
 - 3 Minuten explorativ durch die Anwendung klicken. Dabei im Netzwerktab beobachten, welche http-calls rausgehen.
-- Beispielszenarien:
-  - Neuen Bankaccount anlegen
+
+### Beispielszenarien
+  - Neuen Bankaccount anlegen + prüfen, dass dieser hinterher richtig in der Übersicht erscheint.
   - Neue Transaktion anlegen (grüner `NEW` Button)
   - Einen Kommentar zu einer Transaktion schreiben
 
@@ -40,7 +41,7 @@ Du findest die Tests im package `cypress/tests` unter `e2e` bzw `api`.
 Die E2E-Tests können als Inspiration für UI-Tests-Szenarien dienen.  
 Im gleichen Verzeichnis findest du auch ein `ui` package.  
 Hier gibt es bereits ein Szenario für den Login, der nach dem Start der Anwendung zwingend durchgeführt werden muss.
-Das Szenario kann nun beliebig fortgesetzt werden.
+Das Szenario kann nun beliebig fortgesetzt werden. Zur Inspiration siehe oben beschriebene [Beispielszenarien](#Beispielszenarien).
 
 Starten der Tests:
 * Frontend starten: `yarn run start:react`. Um sicherzugehen, dass nicht das echte Backend verwendet wird den evtl. vorher gestarteten Prozess beenden.
@@ -57,19 +58,18 @@ Um sicher zu sein, dass nicht das echte Backend verwendet wird nur das Frontend 
 Die globalen Settings für Playwright findest du in der [playwright.config.ts](./playwright.config.ts).
 
 Einen ersten UI-Test für den login findest du unter `playwright/tests/ui`.  
-Führe das Testszenario beliebig fort!
+Führe das Testszenario beliebig fort! Zur Inspiration siehe oben beschriebene [Beispielszenarien](#Beispielszenarien).
 
 Als Startpunkt kannst du den Playwright Codegenerator verwenden: `yarn run playwright:codegen`.  
-Achtung: Der Codegenerator verwendet in der Regel keine Test-Ids. Am besten den Test nach der Generierung auf
-`page.getByTestId` Selektoren umstellen.
 
 Falls die Tests beim ersten Versuch nicht starten muss `yarn playwright install` ausgeführt werden.
 
 ### Tipps & Tricks
 
 - Die Anwendung verwendet den tag `data-test` für Test-Ids, z.B. `data-test="nav-top-new-transaction"` für den grünen NEW-Button.
-  - Test-Ids sind der sicherste Weg, Elemente im DOM zu identifizieren und sollten daher vorzugsweise genutzt werden.
-  - Beide Frameworks unterstützen das select via Test-Id (siehe z.B. login-Szenario)
+  - Test-Ids sind ein sicherer Weg, Elemente im DOM zu identifizieren (z.B. bei dynamischen Texten).
+  - Beide Frameworks unterstützen das select via Test-Id (siehe z.B. login-Szenario).
+  - Good Practice ist allerdings, user-zentriert zu selektieren, z.B. via role + name oder label. Siehe auch https://playwright.dev/docs/locators#locating-elements
 - Testgenerierung:
   - Playwright Codegen: `yarn playwright codegen localhost:3000`
   - Cypress: [Browser Plugin für Chrome (Cypress Chrome Recorder)](https://chromewebstore.google.com/detail/cypress-chrome-recorder/fellcphjglholofndfmmjmheedhomgin)
